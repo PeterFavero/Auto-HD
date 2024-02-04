@@ -48,4 +48,4 @@ Welcome to this repository! This project focuses on creating a chrome extension 
    mkdir inputs outputs
    ```
 
-7. Download videos off of Internet Archive (ex: [Peaky Blinders](https://archive.org/details/peaky-blinders-s-01-e-01), [The Boys](https://archive.org/details/the.-boys.-s-01-e-01.1080p.-blu-ray.x-265-rarbg), [Attack on Titan](https://archive.org/details/attack-on-titan-s-1-ep-3) to use for testing.
+7. Download videos off of Internet Archive (ex: [Peaky Blinders](https://archive.org/details/peaky-blinders-s-01-e-01), [The Boys](https://archive.org/details/the.-boys.-s-01-e-01.1080p.-blu-ray.x-265-rarbg), [Attack on Titan](https://archive.org/details/attack-on-titan-s-1-ep-3)) to use for testing.
