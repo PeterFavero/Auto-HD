@@ -13,7 +13,7 @@ def process_file(file_name, input_directory, output_directory, modification) :
 
     input_path = os.path.join(input_directory, file_name)
     output_path = os.path.join(output_directory, f"{os.path.splitext(file_name)[0]}_{modification.__doc__}.avi")
-    print(f"      -- Begin processing {input_path} into {output_path}:")
+    print(f"      -- Begin processing {input_path} into {output_path} with modification {modification.__doc__}:")
 
     # Open the video file
     cap = cv2.VideoCapture(input_path)
@@ -61,7 +61,7 @@ def process_directory(input_directory, output_directory, modification) :
     
     video_files = [file_name for file_name in os.listdir(input_directory) 
                     if file_name.endswith((".mp4")) or file_name.endswith((".avi"))]
-    video_files.sort() #Sort the videos so the ones earlier in 
+    video_files.sort() #Sort the videos so the ones earlier in the video will be processed first
     
     overhead_time = time.time() - start_time
     
