@@ -24,7 +24,6 @@ def split_video(file_name, file_directory, duration):
             '-reset_timestamps', '1',
             os.path.join(file_directory, f'%03d_seg_{file_name}')
         ])
-        os.remove(file_path)
 
 #Processes the video at input_directory/file_name and places the processed video at path
 #output_directory/{file_name}_{string representation of modification}, and deletes the original 
@@ -77,7 +76,7 @@ def process_directory(input_directory, output_directory, modification) :
     video_files = [file_name for file_name in os.listdir(input_directory) 
                     if file_name.endswith((".mp4")) or file_name.endswith((".avi"))]
     for file_name in video_files :
-        split_video(file_name, input_directory, 300)
+        split_video(file_name, input_directory, 30)
 
     video_files = [file_name for file_name in os.listdir(input_directory) 
                     if file_name.endswith((".mp4")) or file_name.endswith((".avi"))]
@@ -98,7 +97,7 @@ def process_directory(input_directory, output_directory, modification) :
 def run() :
     process_directory(input_directory='inputs', 
                       output_directory='outputs', 
-                      modification=enh.fscrnn2x)
+                      modification=mod.grayscale)
 
 #This is a shortcut way to run process_directory() during testing, that in deployment will be deleted 
 if __name__ == "__main__" :
