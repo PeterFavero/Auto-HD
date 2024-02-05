@@ -1,6 +1,5 @@
 #IMPORTS:
 import os
-import sys
 import time
 from joblib import Parallel, delayed
 import cv2
@@ -33,7 +32,7 @@ def split_video(file_name, file_directory, duration):
 def process_file(file_name, input_directory, output_directory, modification) :
 
     input_path = os.path.join(input_directory, file_name)
-    output_path = os.path.join(output_directory, f"{os.path.splitext(file_name)[0]}_{modification.__doc__}.avi")
+    output_path = os.path.join(output_directory, f"{os.path.splitext(file_name)[0]}_{modification.__doc__}.mkv")
     print(f"      -- Begin processing {input_path} into {output_path}:")
 
     # Open the video file
