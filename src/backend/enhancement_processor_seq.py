@@ -2,10 +2,11 @@
 import os
 import time
 import subprocess
+import modifiers as mod
 
 #Run the mkv at input_path through the upscaler and save the output at output_path
 def upscale_mkv(input_path, output_path) :
-    print("unimplemented")
+    print(f"{input_path} use unimplemented.")
 
     # Define the command with pipe as a list
     vspipe_command = ['vspipe', '-c', 'y4m', 'inference.py', '-']
@@ -23,7 +24,7 @@ def upscale_mkv(input_path, output_path) :
     # Wait for the ffmpeg process to complete
     output, error = ffmpeg_process.communicate()
 
-#Janky, not functional/expiremental
+#Janky, not functional
 def process_file(file_name, input_directory, output_directory, modification) :
     input_path = os.path.join(input_directory, file_name)
     output_path = os.path.join(output_directory, f"{os.path.splitext(file_name)[0]}_{modification.__doc__}.mkv")
