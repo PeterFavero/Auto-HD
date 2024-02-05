@@ -1,12 +1,28 @@
 #IMPORTS:
 import os
 import time
+import subprocess
 
 def process_file(file_name, input_directory, output_directory, modification) :
     input_path = os.path.join(input_directory, file_name)
     output_path = os.path.join(output_directory, f"{os.path.splitext(file_name)[0]}_{modification.__doc__}.mkv")
     print(f"      -- Begin processing {input_path} into {output_path} with modification {modification.__doc__}:\n")
 
+    # Define the command with pipe as a list
+    vspipe_command = ['vspipe', '-c', 'y4m', 'inference.py', '-']
+    ffmpeg_command = ['ffmpeg', '-i', 'pipe:', output_path]
+
+    # Set up the vspipe process
+    vspipe_process = subprocess.Popen(vspipe_command, stdout=subprocess.PIPE)
+
+    # Set up the ffmpeg process, with stdin connected to the vspipe process's stdout
+    ffmpeg_process = subprocess.Popen(ffmpeg_command, stdin=vspipe_process.stdout, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    # Close the vspipe's stdout to signal that we are done with it
+    vspipe_process.stdout.close()
+
+    # Wait for the ffmpeg process to complete
+    output, error = ffmpeg_process.communicate()
 
 #Splits each video in input_directory into video segments that are 300 seconds long each using split_video() (300 is a magic
 #number I found that worked well in tests so for now I'm just going with it, will do more thorough tests later),
