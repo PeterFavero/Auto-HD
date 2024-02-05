@@ -3,10 +3,9 @@ import os
 import time
 import subprocess
 
-def process_file(file_name, input_directory, output_directory, modification) :
-    input_path = os.path.join(input_directory, file_name)
-    output_path = os.path.join(output_directory, f"{os.path.splitext(file_name)[0]}_{modification.__doc__}.mkv")
-    print(f"      -- Begin processing {input_path} into {output_path} with modification {modification.__doc__}:\n")
+#Run the mkv at input_path through the upscaler and save the output at output_path
+def upscale_mkv(input_path, output_path) :
+    print("unimplemented")
 
     # Define the command with pipe as a list
     vspipe_command = ['vspipe', '-c', 'y4m', 'inference.py', '-']
@@ -23,6 +22,12 @@ def process_file(file_name, input_directory, output_directory, modification) :
 
     # Wait for the ffmpeg process to complete
     output, error = ffmpeg_process.communicate()
+
+#Janky, not functional/expiremental
+def process_file(file_name, input_directory, output_directory, modification) :
+    input_path = os.path.join(input_directory, file_name)
+    output_path = os.path.join(output_directory, f"{os.path.splitext(file_name)[0]}_{modification.__doc__}.mkv")
+    print(f"      -- Begin processing {input_path} into {output_path} with modification {modification.__doc__}:\n")
 
 #Splits each video in input_directory into video segments that are 300 seconds long each using split_video() (300 is a magic
 #number I found that worked well in tests so for now I'm just going with it, will do more thorough tests later),
