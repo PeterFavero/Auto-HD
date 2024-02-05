@@ -13,17 +13,19 @@ import modifiers as mod
 #seconds long at paths file_directory/{index in video}_seg_{file_name}, and deletes the original 
 #video to at path file_directory/file_name to save space
 def split_video(file_name, file_directory, duration):
-        if duration == -1 : return
-        file_path = os.path.join(file_directory, file_name)
-        subprocess.run([
-            'ffmpeg',
-            '-i', file_path,
-            '-c', 'copy',
-            '-f', 'segment',
-            '-segment_time', str(duration),
-            '-reset_timestamps', '1',
-            os.path.join(file_directory, f'%03d_seg_{file_name}')
-        ])
+    if duration == -1 : return
+    file_path = os.path.join(file_directory, file_name)
+    subprocess.run([
+        'ffmpeg',
+        '-i', file_path,
+        '-c', 'copy',
+        '-f', 'segment',
+        '-segment_time', str(duration),
+        '-reset_timestamps', '1',
+        os.path.join(file_directory, f'%03d_seg_{file_name}')
+    ])
+    #delete the now-processed file (commented out for convenience of testing)
+    #os.remove(input_path) 
 
 #Processes the video at input_directory/file_name and places the processed video at path
 #output_directory/{file_name}_{string representation of modification}, and deletes the original 
