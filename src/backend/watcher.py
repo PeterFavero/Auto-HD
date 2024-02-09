@@ -1,5 +1,4 @@
-import modifiers as mod
-import modification_processor as processor
+import ai.AIPipeline as processor
 import time
 import os
 from watchdog.observers import Observer
