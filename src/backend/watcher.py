@@ -17,7 +17,7 @@ class MyHandler(FileSystemEventHandler):
                 print("     -- watcher.py triggered: beginning processing", os.path.basename(event.src_path))
                 subprocess.run(["docker-compose", "run", "--rm", "vsgan_tensorrt"])
                 subprocess.run(["python", "main.py"])
-                print("     -- watcher.py terminated: finished processing", os.path.basename(event.src_path))
+                print("     -- watcher.py terminated: finished processing", os.path.basename(event.src_path), "\n")
 
 if __name__ == "__main__":
     event_handler = MyHandler()
