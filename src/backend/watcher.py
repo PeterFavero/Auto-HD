@@ -15,7 +15,13 @@ class MyHandler(FileSystemEventHandler):
             file_extension = os.path.splitext(event.src_path)[1]
             if file_extension.lower() == '.mp4' or file_extension.lower() == '.mkv':
                 print("     -- watcher.py triggered: beginning processing", os.path.basename(event.src_path))
+                
+                os.chdir('C:/Users/High Definition/SharprAI/src/backend/ai')
+                print("---------------cded----------------")
+                
                 subprocess.run(["docker-compose", "run", "--rm", "vsgan_tensorrt"])
+                print("The current path is:", os.getcwd())
+
                 subprocess.run(["python", "main.py"])
                 print("     -- watcher.py terminated: finished processing", os.path.basename(event.src_path), "\n")
 
