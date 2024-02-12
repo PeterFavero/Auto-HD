@@ -19,12 +19,22 @@ class MyHandler(FileSystemEventHandler):
                 os.chdir('C:/Users/High Definition/SharprAI/src/backend/ai')
                 print("---------------cded----------------")
                 
-                subprocess.run(["docker-compose", "run", "--rm", "vsgan_tensorrt"])
-                print("The current path is:", os.getcwd())
+                print("---------------starting docker container----------------")
 
-                subprocess.run(["python", "main.py"])
+                # Start a Docker container and open an interactive shell
+                process = subprocess.Popen(["docker-compose", "run", "--rm", "-T", "vsgan_tensorrt", "/bin/bash"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+                # Send the python command to the container's shell
+                command = 'python /workspace/tensorrt/main.py\n'
+                output, errors = process.communicate(command.strip())
+
+                # Print the output and errors if any
+                print(output)
+                if errors:
+                    print(errors)
+
                 print("     -- watcher.py terminated: finished processing", os.path.basename(event.src_path), "\n")
-
+                
 if __name__ == "__main__":
     event_handler = MyHandler()
     observer = Observer()
