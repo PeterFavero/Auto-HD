@@ -1,3 +1,6 @@
+# NOTE :    the current code in main is expiremental and may not work, and I plan to test it later tn. 
+#           Please reach out with any questions. – Peter
+
 import time
 import os
 from watchdog.observers import Observer
