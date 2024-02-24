@@ -1,30 +1,33 @@
-document.getElementById('recordBtn').addEventListener('click', function() {
-  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+// document.getElementById('checkUrl').addEventListener('click', function() {
+//   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+//     var activeTab = tabs[0];
+//     if (activeTab.url && activeTab.url.includes("youtube.com/watch")) {
+//       chrome.runtime.sendMessage({action: "submitVideo", url: activeTab.url});
+//     }
+//   });
+// });
 
-    //Get current tab url
-    var currentURL = tabs[0].url;
-
-    //if it isn't a yt url, make the current URL the yt homepage
-    if( !isYouTubeUrl(currentURL) ) currentURL = "https://www.youtube.com/"
-
-    //Open a new URL and start recording in the previous tab
-    chrome.tabs.create({ url: currentURL }, function(tab) {
-      chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        function: startRecording, // Define this function to start recording
+document.addEventListener('DOMContentLoaded', function() {
+  var checkUrlButton = document.getElementById('checkUrl');
+  if (checkUrlButton) {
+      checkUrlButton.addEventListener('click', function() {
+          chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+              var currentTab = tabs[0];
+              if (currentTab && isYouTubeUrl(currentTab.url)) {
+                  chrome.runtime.sendMessage({ action: "submitVideo", url: currentTab.url });
+                  console.log(currentTab)
+              }
+          });
       });
-    });
-
-  });
+  }
 });
 
 function isYouTubeUrl(url) {
-  // Regular expression to match YouTube video URLs
   var youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
   return youtubeRegex.test(url);
 }
-  
+
 function startRecording() {
-  // Recording logic here
   console.log('Recording started...');
+  // Insert recording logic here
 }
