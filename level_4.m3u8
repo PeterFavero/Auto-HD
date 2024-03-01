@@ -1,0 +1,8 @@
+#EXTM3U
+#EXT-X-MEDIA-SEQUENCE:0
+#EXTINF:0,
+https://output-sharpr.s3.us-east-2.amazonaws.com/ts_files/videoname_1.ts
+#EXTINF:0,
+https://output-sharpr.s3.us-east-2.amazonaws.com/ts_files/videoname_2.ts
+#EXTINF:0,
+https://output-sharpr.s3.us-east-2.amazonaws.com/ts_files/videoname_3.ts

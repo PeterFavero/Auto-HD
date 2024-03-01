@@ -1,0 +1,23 @@
+<html> 
+<head>
+<title> m3u8 audio </title>
+</head>
+<body>
+<video id="video" width="680" height="500" controls >
+<script src="http://hlsbook.net/wp-content/examples/hls.min.js"> </script>
+<script>
+if (Hls.isSupported() ) {
+var video = document.getElementById('video');
+var hls = new Hls();
+hls.loadSource('https://output-sharpr.s3.us-east-2.amazonaws.com/ts_files/level_4.m3u8');
+hls.attachMedia(video);
+hls.on(Hls.Events.MANIFEST_PARSED, function(){
+video.play();
+});
+}
+</script>
+</body>
+</html> 
+
+<!-- Wait also, I need some help with playing my own m3u8 on my browser. I wrote some html to play it that HLS object and .loadSource() but for some reason it only plays the last clip in my m3u8 and I can't figure out why. I hosted the clips on AWS as s3 object urls and wrote some code for the bucket policy and CORS authentication (which let me play the m3u8 on the browser in the first place) but I'm stumped at what to do from here. Do you experience with this or know what I should do? -->
+<!-- Oh and when I play it on VLC, it just keeps loading the screen -->
