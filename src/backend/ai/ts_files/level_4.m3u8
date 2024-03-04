@@ -1,0 +1,8 @@
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-TARGETDURATION:10
+#EXT-X-MEDIA-SEQUENCE:1
+#EXT-X-PLAYLIST-TYPE:VOD
+#EXT-X-DISCONTINUITY
+#EXTINF:10,
+https://enhance.s3.us-east-2.amazonaws.com/ts_files/videoname_1.ts
