@@ -13,12 +13,15 @@ SharprAI operates through a client-server model:
 * Server-side: The serverside backend (`src/backend`) uses the latest opensource video upscaling technology to improve video quality.
 
 ### Workflow
-+ Users install the SharprAI extension in their Chrome browser.
-+ To upscale a video, users click on the SharprAI extension icon while watching a video.
-3. The extension begins capturing the current tab's video in 10-second segments.
-4. These segments are uploaded to an AWS S3 bucket.
-5. The S3 object URLs are sent to the server and queued for sequential processing.
-which uses VSGAN-tensorrt-docker for real-time upscaling (see src/backend/app.py for implementation details).
-6. The upscaled video segments are saved to a different S3 bucket and streamed back to the user's browser using the HLS protocol in m3u8 format.
-
-_SharprAI_ has two components: a serverside component, which you can find in the directory `src/backend`, and a clientside component, which you can find in the directory `src/extension` (coming soon – need to get Joshua to upload it). Our solution architecture works by having the user download the extension, and having the option to upscale their current tab by clicking on the extension icon, after which point they should full screen their video, and navigate into a new tab the extension will open that plays an upscaled version of their previous tab. The way this works on the serverside backend is that the extension starts recording the user's current tab as soon as it is activated in 10-second clips, stores those clips as they are generated in an AWS s3 bucket, sends the clip's s3 object urls to the server, which runs them through the best available [opensource pretrained real-time upscaling software](https://github.com/styler00dollar/VSGAN-tensorrt-docker) using the code in `src/backend/app.py`, saves the output clips to another s3 bucket that are sent back to be played using the industry-standard HTTP Live Streaming (HLS) protocol in the m3u8 format. 
+#### Clientside:
+1. Users install the SharprAI extension in their Chrome browser.
+2. To upscale a video, users click on the SharprAI extension icon while watching a video.
+3. The extension begins capturing the current tab's video in 10-second segments (refered to as "input clips").
+4. These input clips are uploaded to an AWS S3 bucket.
+5. The S3 object URLs of the input clips are sent to the server.
+#### Serverside:
+7. The S3 object URLS of the input clips queued for sequential processing.
+8. The server upscales the input clips through [VSGAN-tensorrt-docker](https://github.com/styler00dollar/VSGAN-tensorrt-docker) to produce upscaled video (referred to as"output clips").
+9. The output clips are uploaded to a different AWS 3s bucket.
+#### Clientside:
+10. The ouput clips are live-streamed back to the user's browser using the HLS protocol in m3u8 format.
