@@ -1,5 +1,6 @@
 # _SharprAI_, Real-Time Video Enhancement Extension
 
+---
 
 ## Introduction
 
@@ -7,6 +8,7 @@ Welcome to this repository! _SharprAI_ is a performance-critical chrome extensio
 
 In this README, you'll find a technical overview of how _SharprAI_ works, straightforward setup instructions to get you started with video upscaling on your machine, and an comprehensive technical deep-dive of our software's capabilities and implementation.
 
+---
 
 ## Technical Overview 
 
@@ -29,3 +31,13 @@ SharprAI operates through a client-server model:
 9. Output clips are uploaded to a different AWS 3s bucket.
 #### Clientside:
 10. Output clips are live-streamed back to the user's browser using the HLS protocol in m3u8 format.
+
+---
+
+## Setup and Usage Instructions
+Coming Soon!
+
+---
+
+## Technical Deep-Dive
+Coming soon!
