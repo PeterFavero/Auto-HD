@@ -8,11 +8,12 @@ In this README, you'll find a technical overview of how _SharprAI_ works, straig
 
 ## Technical Overview 
 
+### Architecture:
 SharprAI operates through a client-server model:
 * Client-side: The Chrome extension (`src/extension`) allows users to enhance videos directly within their browser.
 * Server-side: The serverside backend (`src/backend`) uses the latest opensource video upscaling technology to improve video quality.
 
-### Workflow
+### Workflow: 
 #### Clientside:
 1. Users install the SharprAI extension in their Chrome browser.
 2. To upscale a video, users click on the SharprAI extension icon while watching a video.
