@@ -2,9 +2,7 @@
 
 ## Introduction
 
-Welcome to this repository! _SharprAI_ is a performance-critical chrome extension focussed on using generative AI to enhance low-quality or pixelated video in the user's browser in real time. Our mission is to transform the streaming experience by making it possible for everyone to enjoy high-quality video without the need for high-bandwidth streaming.
-
-In this README, you'll find a technical overview of how _SharprAI_ works, straightforward setup instructions to get you started with video upscaling on your machine, and an comprehensive technical deep-dive of our software's capabilities and implementation.
+Welcome to this repository! _SharprAI_ is a performance-critical chrome extension focussed on using generative AI to enhance low-quality or pixelated video in the user's browser in real time. 
 
 ## Technical Overview 
 
@@ -30,6 +28,3 @@ SharprAI operates through a client-server model:
 
 ## Setup and Usage Instructions
 Coming Soon!
-
-## Technical Deep-Dive
-Coming soon!
