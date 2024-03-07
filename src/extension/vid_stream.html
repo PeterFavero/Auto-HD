@@ -1,0 +1,35 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
+  <title>My Website</title>
+  <!-- <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+</head>
+
+<body>
+  <!-- <main>
+        <h1>Welcome to My Website</h1>
+    </main> -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <video id="video" class="video-js" controls preload="auto" width="640" height="264" data-setup="{}">
+    <source src="https://output-sharpr.s3.us-east-2.amazonaws.com/master.m3u8" type="application/x-mpegURL">
+  </video>
+  <script>
+    if (Hls.isSupported()) {
+      var video = document.getElementById('video');
+      var hls = new Hls();
+      hls.loadSource('https://output-sharpr.s3.us-east-2.amazonaws.com/master.m3u8');
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+        video.play();
+      });
+    }
+  </script>
+</body>
+
+</html>
