@@ -22,9 +22,12 @@ SharprAI operates through a client-server model:
 #### Serverside:
 7. The S3 object URLS of the input clips queued for sequential processing.
 8. The server upscales the input clips through [VSGAN-tensorrt-docker](https://github.com/styler00dollar/VSGAN-tensorrt-docker) to produce upscaled clips ("output clips").
-9. Output clips are uploaded to a different AWS 3s bucket.
+9. Output clips are turned into M3U8s to replicate professional-world HLS streaming
+10. M3U8 are uploaded or updated on the AWS side
+
 #### Clientside:
-10. Output clips are live-streamed back to the user's browser using the HLS protocol in m3u8 format.
+11. Output clips are live-streamed back to the user's browser using the HLS protocol in m3u8 format.
+  a) Client already has s3 object url to the M3U8 so once the first clip is finished enhancing, new clips will automatically be added without client needing to reload the page
 
 ## Setup and Usage Instructions
 Client-side:
