@@ -27,7 +27,7 @@ SharprAI operates through a client-server model:
 
 #### Clientside:
 11. Output clips are live-streamed back to the user's browser using the HLS protocol in m3u8 format.
-  a) Client already has s3 object url to the M3U8 so once the first clip is finished enhancing, new clips will automatically be added without client needing to reload the page
+a) Client already has s3 object url to the M3U8 so once the first clip is finished enhancing, new clips will automatically be added without client needing to reload the page
 
 ## Setup and Usage Instructions
 Client-side:
