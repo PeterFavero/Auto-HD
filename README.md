@@ -42,7 +42,7 @@ Server-side:
 Coming soon!
 
 
-### Overview
+## Overview
 ##_Problem:_
 There are two sides to technological progress: a brighter, progressive future where new technology becomes further integrated into our lives and the thousands of old devices that fall into disuse to welcome the new change. As we approach another technological frontier with the advancement of AI, it is often easy to look at the bright future ahead, but it is far more important to see what and more importantly, who we leave behind. Low-quality videos and pictures often fall to the wayside despite the significant amount of childhood memories they hold. We aim to bring back these memories through our software. However, even more importantly, the advancement of technology can leave people behind. Limits on the availability of good graphics can worsen education, restrict communication, and widen disparities for people of lower socioeconomic status. We aim to bridge these disparities by bringing video enhancement to all.
 ##_Inspiration:_
