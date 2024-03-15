@@ -77,6 +77,7 @@ SharprAI utilizes open-source video enhancement technology, we have developed a 
 Centralized Video Enhancement Hub: Our platform provides a seamless experience for users looking to enhance their video content. By uploading a YouTube video URL or an MP4 file directly to our website, users can witness the transformation of their videos in real time. The interface thoughtfully displays the enhanced video alongside the original, enabling immediate comparison and showcasing the dramatic improvements our technology delivers.
 ### _How it works:_
 Our infrastructure is built around a powerful pipeline hosted on AWS Cloud, which serves as the foundation for our vision enhancement model. This setup enables our web interface to interact seamlessly with our backend. Here, videos are spliced and sent to the server, where they undergo real-time enhancement. Once processed, the enhanced video is promptly returned to the interface, ready to be displayed.
+
 The Bread and Butter: Our core technology revolves around the Real-ESRGAN model, an AI-driven approach specifically designed for enhancing animated visuals. This model is adept at analyzing low-resolution footage and predicting a high-quality output by filling in missing details, reducing noise, and sharpening lines without compromising the animated original style. Trained on a comprehensive dataset of animated content, it ensures that each frame is not just clearer but also in line with the intent of the original creation.
 ### What's next?:
 ### _Dim Scene Enhancement:_ 
