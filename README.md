@@ -42,13 +42,16 @@ Client-side:
   <br> b) On other websites, after clicking the icon, full screen the tab for optimal viewing experience
      <br> After intial 10 second delay, the video will play continously on the same new tab until you stop enhancing
 
-### Setting up server
-
-Follow the self-deploy steps below on the instance to have the server up and working. 
 
 ## Self-deploy steps
 
-> **_NOTE:_**  To self-deploy, your machine needs to have an NVIDIA GPU running with the correct drivers. Make sure `nvidia-smi` works correctly.
+> **_NOTE:_**  To self-deploy, your machine needs to have an NVIDIA GPU running.
+
+### Setting up server
+
+Follow the self-deploy steps below on the instance to have the server up and working.
+
+### Steps
 
 1. `git clone https://github.com/nairvishnumail/Sharp-ai-ly.git`
 2. Dockerize input and output directories `docker run -v "<project_path>/Sharpr-ai-ly/src/backend/ai/input:/input" -v "<project_path>/Sharpr-ai-ly/src/backend/ai/out:/out" -it `
