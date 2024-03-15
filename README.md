@@ -3,6 +3,7 @@
 ## Introduction
 
 Welcome to this repository! _SharprAI_ is a performance-critical chrome extension focussed on using generative AI to enhance low-quality or pixelated video in the user's browser in real time. 
+Engineered a dockerized environment of an open-source [REAL ESRGAN model ↗](https://github.com/the-database/mpv-upscale-2x_animejanai) interfaced with a FlaskAPI on an AWS EC2 p2.xlarge instance, ensuring cost-effective scalability for GPU-intensive tasks through NVIDIA’s TensorRT SDK, leading to video enhancement in 2x time.
 
 ## Technical Overview 
 
@@ -41,13 +42,27 @@ Client-side:
   <br> b) On other websites, after clicking the icon, full screen the tab for optimal viewing experience
      <br> After intial 10 second delay, the video will play continously on the same new tab until you stop enhancing
 
-Server-side:
-1. Set up Apache Server
-2. Set up ngrok
-3. Get ngrok URL and paste link into extension code
-4. Run python app.py
-   <br> Server is ready to accept client videos!
+### Setting up server
 
+Follow the self-deploy steps below on the instance to have the server up and working. 
+
+## Self-deploy steps
+
+> **_NOTE:_**  To self-deploy, your machine needs to have an NVIDIA GPU running with the correct drivers. Make sure `nvidia-smi` works correctly.
+
+1. `git clone https://github.com/nairvishnumail/Sharp-ai-ly.git`
+2. Dockerize input and output directories `docker run -v "<project_path>/Sharpr-ai-ly/src/backend/ai/input:/input" -v "<project_path>/Sharpr-ai-ly/src/backend/ai/out:/out" -it `
+3. `docker-compose run --rm vsgan_tensorrt`
+4. `python app.py`
+5. Get ngrok URL and paste link into extension code
+
+You now have the server running on at [localhost:8080](http://localhost:8080)
+
+Send a POST request with video_url in the body to `http://localhost:8080/process-video` to get back a S3 object URL for the processed video
+
+For tunnelling a localhost environment, I used [ngrok](https://ngrok.com/download) that helped me hit the endpoint from different PCs
+
+Server is ready to accept client videos!
 
 ## Overview
 ### Problem:
