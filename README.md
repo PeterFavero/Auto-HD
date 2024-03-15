@@ -5,6 +5,13 @@
 Welcome to this repository! _SharprAI_ is a performance-critical chrome extension focussed on using generative AI to enhance low-quality or pixelated video in the user's browser in real time. 
 Engineered a dockerized environment of an open-source [REAL ESRGAN model ↗](https://github.com/the-database/mpv-upscale-2x_animejanai) interfaced with a FlaskAPI on an AWS EC2 p2.xlarge instance, ensuring cost-effective scalability for GPU-intensive tasks through NVIDIA’s TensorRT SDK, leading to video enhancement in 2x time.
 
+## Demo
+https://github.com/nairvishnumail/SharprAI/assets/76607707/3b8e8dfc-52a3-461e-8b74-840643926f65
+
+https://github.com/nairvishnumail/SharprAI/assets/76607707/419e8932-d0d8-4aa9-b973-33fbe7f00f43
+
+https://github.com/nairvishnumail/SharprAI/assets/76607707/8a8a8e50-7b78-4cc7-9f88-4ee25a636187
+
 ## Technical Overview 
 
 ### Architecture:
@@ -54,10 +61,11 @@ Follow the self-deploy steps below on the instance to have the server up and wor
 ### Steps
 
 1. `git clone https://github.com/nairvishnumail/Sharp-ai-ly.git`
-2. Dockerize input and output directories `docker run -v "<project_path>/Sharpr-ai-ly/src/backend/ai/input:/input" -v "<project_path>/Sharpr-ai-ly/src/backend/ai/out:/out" -it `
-3. `docker-compose run --rm vsgan_tensorrt`
-4. `python app.py`
-5. Get ngrok URL and paste link into extension code
+2. Make sure you have docker and docker-compose: Get it [here](https://www.docker.com/get-started/)
+3. Dockerize input and output directories `docker run -v "<project_path>/Sharpr-ai-ly/src/backend/ai/input:/input" -v "<project_path>/Sharpr-ai-ly/src/backend/ai/out:/out" -it `
+4. `docker-compose run --rm vsgan_tensorrt`
+5. `python app.py`
+6. Get ngrok URL and paste link into extension code
 
 You now have the server running on at [localhost:8080](http://localhost:8080)
 
