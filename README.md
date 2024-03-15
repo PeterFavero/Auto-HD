@@ -39,7 +39,11 @@ Client-side:
      After intial 10 second delay, the video will play continously on the same new tab until you stop enhancing
 
 Server-side:
-Coming soon!
+1. Set up Apache Server
+2. Set up ngrok
+3. Get ngrok URL and paste link into extension code
+4. Run python app.py
+Server is ready to accept client videos!
 
 
 ## Overview
