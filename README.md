@@ -35,7 +35,7 @@ SharprAI operates through a client-server model:
 
 #### Clientside:
 11. Output clips are live-streamed back to the user's browser using the HLS protocol in m3u8 format.
-<br> a) Client already has s3 object url to the M3U8 so once the first clip is finished enhancing, new clips will automatically be added without client needing to reload the page
+<br> The client will already have an s3 object url to the streaming M3U8 once the first clip is finished enhancing, so new clips will automatically be added to the M3U8 and streamed without the client needing to reload the page.
 
 ## Setup and Usage Instructions
 Client-side:
@@ -45,7 +45,7 @@ Client-side:
 4. Go to chrome://extensions, click developer mode
 5. Click the load unpacked button and choose the unzipped Extension folder
 6. Click on the icon whenever you want to enhance
-  <br> a) Youtube videos will automatically be enhanced and played on a new tab
+  <br> a) Youtube videos will automatically be enhanced and played on a new tab. 
   <br> b) On other websites, after clicking the icon, full screen the tab for optimal viewing experience
      <br> After intial 10 second delay, the video will play continously on the same new tab until you stop enhancing
 
