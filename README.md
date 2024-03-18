@@ -52,7 +52,7 @@ Client-side:
 
 ## Self-deploy steps
 
-> **_NOTE:_**  To self-deploy, your machine needs to have an NVIDIA GPU running.
+> **_NOTE:_**  To self-deploy, your machine needs to have an NVIDIA GPU running. Further, certain paths are hardcoded into (`src/backend/app.py`) that need to be changed to general OS paths to work on machines other than the one we tested this on. This change is coming soon!
 
 ### Setting up server
 
