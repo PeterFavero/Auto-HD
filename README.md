@@ -3,7 +3,7 @@
 ## Introduction
 
 Welcome to this repository! _SharprAI_ is a performance-critical chrome extension focussed on using generative AI to enhance low-quality or pixelated video in the user's browser in real time. 
-Engineered a dockerized environment of an open-source [REAL ESRGAN model ↗](https://github.com/the-database/mpv-upscale-2x_animejanai) interfaced with a FlaskAPI on an AWS EC2 p2.xlarge instance, ensuring cost-effective scalability for GPU-intensive tasks through NVIDIA’s TensorRT SDK, leading to video enhancement in 2x time.
+Engineered a dockerized environment of a modified REAL ESRGAN model interfaced with a FlaskAPI on an AWS EC2 p2.xlarge instance, ensuring cost-effective scalability for GPU-intensive tasks through NVIDIA’s TensorRT SDK, leading to video enhancement in 2x time.
 
 ## Demo
 https://github.com/nairvishnumail/SharprAI/assets/76607707/3b8e8dfc-52a3-461e-8b74-840643926f65
